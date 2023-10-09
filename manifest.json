@@ -1,0 +1,28 @@
+{
+"manifest_version": 3,
+"name": "Data Scraper",
+"description": "Scraping data in website",
+"version": "1.0",
+"background": {
+  "service_worker": "background.js"
+},
+"permissions" : ["activeTab","tabs","scripting","downloads", "storage","identity"],
+
+
+"host_permissions" : ["http://www.google.com/","http://192.168.0.252:8080/contracts/read"],
+
+"action": {
+  "default_popup": "scrapper.html"
+},
+
+"oauth2": {
+  "client_id": "1046237745798-jscanhureu75eou99mk4m84ibj31sojb.apps.googleusercontent.com",
+  "scopes": ["https://www.googleapis.com/auth/userinfo.email"]
+},
+"content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }
+]
+}
